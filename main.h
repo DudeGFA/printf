@@ -9,7 +9,7 @@
 typedef struct prints_all
 {
 	char *sign;
-	void (*print)(va_list ap);
+	void (*print)(va_list ap, char *, int);
 } printer;
 int _printf(const char *format, ...);
 #endif /* main.h */
