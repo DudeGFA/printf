@@ -10,19 +10,23 @@ int _printf(const char *format, ...)
 {
 	va_list ap;
 	int i = 0, j;
-	char *separator = "";
 	printer ss[] = {
-		{"c", print_char},
-		{"i", print_int},
-		{"f", print_float},
-		{"s", print_string}
+		{"c", print_char}, {"i", print_int},
+		{"d", print_decint},{"s", print_string},
+		{"b", print_in_bin},{"u", print_unint},
+		{"o", print_octint}, {"x", print_hex},
+		{"X", print_uphex}, {"S", print_string},
+		{"p", print_addr}, {"R", print_rot13},
+		{"r", print_rev}, {NULL, NULL},
 	};
 
 	va_start(ap, format);
 	for (i == 0; format[i] && format; i++)
+	{
 		if(format[i] == "\" && format[i - 1] != "\")
 		   	continue;
 		if (format[i] == "%" && format[[i - 1] != "\")
+		{
 				j = 0;
 				while (j < 4)
 				{
@@ -33,8 +37,10 @@ int _printf(const char *format, ...)
 					j++;
 				}
 				i++;
+		}
 		else
 			write(1, format[i], 1);
+	}
 	va_end(ap);
 	printf("\n");
 }
