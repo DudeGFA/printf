@@ -1,6 +1,5 @@
 #include "main.h"
 #include <stdarg.h>
-
 /**
  * _print - print all parameters
  * @format: list of types of arguments passed to the function
@@ -23,24 +22,22 @@ int _printf(const char *format, ...)
 	va_start(ap, format);
 	for (i == 0; format[i] && format; i++)
 	{
-		if(format[i] == "\" && format[i - 1] != "\")
-		   	continue;
-		if (format[i] == "%" && format[[i - 1] != "\")
+		if ((format[i] == "%") && (format[i - 1] != "\\"))
 		{
 				j = 0;
 				while (j < 4)
 				{
 					if (*(format + i) == *(ss[j].sign))
 					{
-						ss[j].print(ap);
+						ss[j].print(ap, format, i);
 					}
 					j++;
 				}
 				i++;
 		}
 		else
-			write(1, format[i], 1);
+			_putchar(format[i]);
 	}
 	va_end(ap);
-	printf("\n");
+    return (0);
 }
