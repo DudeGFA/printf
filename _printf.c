@@ -10,7 +10,7 @@ int _printf(const char *format, ...)
 	va_list ap;
 	int i, j;
 	printer ss[] = {
-		{"s", print_string},{"c", print_char},
+		{"s", print_string}, {"c", print_char},
 		{"%", print_perc},
 	};
 
