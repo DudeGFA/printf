@@ -9,11 +9,13 @@
  */
 int print_string(va_list ap, const char *format __attribute__((unused)), int i __attribute__((unused)))
 {
-    char *p;
-    int k;
+	char *p;
+	int k;
 
-    p = va_arg(ap, char*);
-    for (k = 0; p[k]; k++)
-        _putchar(p[k]);
-    return (k - 1);
+	p = va_arg(ap, char*);
+	for (k = 0; p[k]; k++)
+	{
+		_putchar(p[k]);
+	}
+	return (0);
 }
