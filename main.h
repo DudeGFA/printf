@@ -2,6 +2,7 @@
 #define _main_h
 #include <stdarg.h>
 #include <unistd.h>
+#include <stdio.h>
 /**
  * struct prints_all - prints_all
  * @sign: represents data type
