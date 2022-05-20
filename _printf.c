@@ -11,7 +11,7 @@ int _printf(const char *format, ...)
 	int i, j;
 	printer ss[] = {
 		{"s", print_string}, {"c", print_char},
-		{"%", print_perc},
+		{"%", print_perc}
 	};
 
 	va_start(ap, format);
