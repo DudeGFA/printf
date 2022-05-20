@@ -1,6 +1,8 @@
 #ifndef _main_h
 #define _main_h
 #include <stdarg.h>
+#include <unistd.h>
+#include <stdio.h>
 /**
  * struct prints_all - prints_all
  * @sign: represents data type
@@ -9,7 +11,9 @@
 typedef struct prints_all
 {
 	char *sign;
-	void (*print)(va_list ap, char *, int);
+	int (*print)(va_list ap, const char *, int);
 } printer;
+int _putchar(char c);
 int _printf(const char *format, ...);
+int print_char(va_list ap, const char *, int);
 #endif /* main.h */
