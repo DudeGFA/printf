@@ -16,4 +16,5 @@ typedef struct prints_all
 int _putchar(char c);
 int _printf(const char *format, ...);
 int print_char(va_list ap, const char *, int);
+int print_string(va_list ap, const char *format, int i);
 #endif /* main.h */
