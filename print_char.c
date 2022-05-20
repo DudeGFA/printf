@@ -7,9 +7,9 @@
  */
 int print_char(va_list ap, const char *format __attribute__((unused)), int i __attribute__((unused)))
 {
-    char c;
+	char c;
 
 	c = va_arg(ap, int);
-    _putchar(c);
-    return (1);
+	_putchar(c);
+	return (1);
 }
