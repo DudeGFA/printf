@@ -7,8 +7,8 @@
  * @i: parameter
  * Return: int
  */
-int print_perc(va_list ap __attribute__((unused)), const char *f __attribute__((unused)), int i __attribute__((unused)))
+int print_perc(va_list ap __attribute__((unused)), const char *f __attribute__((unused)), int i)
 {
 	_putchar('%');
-	return (1);
+	return ((i * 0) + 1);
 }
