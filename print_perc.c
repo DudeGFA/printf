@@ -3,7 +3,7 @@
 /**
  * print_perc - prints %
  * @ap: va_list
- * @format: parameter
+ * @f: parameter
  * @i: parameter
  * Return: int
  */
