@@ -9,7 +9,7 @@
 int _printf(const char *format, ...)
 {
 	va_list ap;
-	int i, j, n = 0, m = 0;
+	int i, j;
 	printer ss[] = {
 		{"s", print_string},{"c", print_char},
 		/*{"d", print_decint},{"i", int},
@@ -18,7 +18,7 @@ int _printf(const char *format, ...)
 		{"X", print_uphex}, {"S", print_string},
 		{"p", print_addr}, {"R", print_rot13},
 		{"r", print_rev},*/
-		{NULL, NULL},
+		{"%", print_perc},
 	};
 
 	va_start(ap, format);
@@ -26,13 +26,12 @@ int _printf(const char *format, ...)
 	{
 		if (format[i] == '%')
 		{
-			m++;
 			j = 0;
-			while (j < 2)
+			while (j < 3)
 			{
 				if (*(format + i + 1) == *(ss[j].sign))
 				{
-					n += ss[j].print(ap, format, i);
+					ss[j].print(ap, format, i);
 				}
 				j++;
 			}
@@ -42,5 +41,5 @@ int _printf(const char *format, ...)
 			_putchar(format[i]);
 	}
 	va_end(ap);
-    return ((n - (2 * m)) + (i - 1));
+    return (0);
 }
