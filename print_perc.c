@@ -10,5 +10,5 @@
 int print_perc(va_list ap, const char *f __attribute__((unused)), int i)
 {
 	_putchar('%');
-	return ((i * 0) + 1);
+	return (1);
 }
