@@ -1,6 +1,5 @@
 #include "main.h"
 #include <stdarg.h>
-#include <stdio.h>
 /**
  * _print - print all parameters
  * @format: list of types of arguments passed to the function
