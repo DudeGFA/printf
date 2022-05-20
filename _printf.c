@@ -18,20 +18,20 @@ int _printf(const char *format, ...)
 		{"X", print_uphex}, {"S", print_string},
 		{"p", print_addr}, {"R", print_rot13},
 		{"r", print_rev},*/
-		{"%", print_perc},
+		{"%", print_perc},{NULL, NULL}
 	};
 
-	if (format == NULL)
+	/*if (format == NULL)
 	{
-		return (1);
-	}
+		return (NULL);
+	}*/
 	va_start (ap, format);
 	for (i = 0; format[i] && format; i++)
 	{
 		if (format[i] == '%')
 		{
 			j = 0;
-			while (j < 3)
+			while (j < 4)
 			{
 				if (*(format + i + 1) == *(ss[j].sign))
 				{
@@ -42,7 +42,7 @@ int _printf(const char *format, ...)
 				j++;
 			}
 			if (ck != 1)
-				return (1);
+				ss[3].print(ap, format, i);
 			i++;
 		}
 		else
