@@ -1,20 +1,31 @@
 #include "main.h"
 #include <stdarg.h>
+#include <stdio.h>
 /**
- * _printf - print all parameters
+ * _print - print all parameters
  * @format: list of types of arguments passed to the function
  * Return: int
  */
 int _printf(const char *format, ...)
 {
 	va_list ap;
-	int i, j;
+	int i, j, m = 0, n = 0, ck = 0;
 	printer ss[] = {
-		{"s", print_string}, {"c", print_char},
-		{"%", print_perc}
+		{"s", print_string},{"c", print_char},
+		/*{"d", print_decint},{"i", int},
+		{"b", print_in_bin},{"u", print_unint},
+		{"o", print_octint}, {"x", print_hex},
+		{"X", print_uphex}, {"S", print_string},
+		{"p", print_addr}, {"R", print_rot13},
+		{"r", print_rev},*/
+		{"%", print_perc},
 	};
 
-	va_start(ap, format);
+	if (format == NULL)
+	{
+		return (1);
+	}
+	va_start (ap, format);
 	for (i = 0; format[i] && format; i++)
 	{
 		if (format[i] == '%')
@@ -24,15 +35,19 @@ int _printf(const char *format, ...)
 			{
 				if (*(format + i + 1) == *(ss[j].sign))
 				{
-					ss[j].print(ap, format, i);
+					m += ss[j].print(ap, format, i);
+					n++;
+					ck = 1;
 				}
 				j++;
 			}
+			if (ck != 1)
+				return (1);
 			i++;
 		}
 		else
 			_putchar(format[i]);
 	}
-	va_end(ap);
-	return (0);
+	va_end (ap);
+    return ((i - (n * 2)) + m);
 }
