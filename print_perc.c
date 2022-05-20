@@ -1,14 +1,14 @@
 #include "main.h"
 #include <stdarg.h>
 /**
- * print_perc - prints %
+ * print_perc - prints % 
  * @ap: va_list
- * @f: parameter
+ * @format: parameter
  * @i: parameter
- * Return: int
+ * Return: int 
  */
-int print_perc(va_list ap __attribute__((unused)), const char *f __attribute__((unused)), int i)
+int print_perc(va_list ap __attribute__((unused)),const char *format __attribute__((unused)), int i __attribute__((unused)))
 {
-	_putchar('%');
-	return ((i * 0) + 1);
+    _putchar('%');
+    return (1);
 }
