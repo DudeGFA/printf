@@ -23,7 +23,7 @@ int _printf(const char *format, ...)
 
 	if (format == NULL)
 	{
-		return (1);
+		return (-1);
 	}
 	va_start (ap, format);
 	for (i = 0; format[i] && format; i++)
@@ -31,23 +31,22 @@ int _printf(const char *format, ...)
 		if (format[i] == '%')
 		{
 			j = 0;
+			ck++;
 			while (j < 3)
 			{
 				if (*(format + i + 1) == *(ss[j].sign))
 				{
 					m += ss[j].print(ap, format, i);
 					n++;
-					ck = 1;
+					i++;
+					ck--;
 				}
 				j++;
 			}
-			if (ck != 1)
-				return (1);
 			i++;
 		}
-		else
-			_putchar(format[i]);
+		_putchar(format[i]);
 	}
 	va_end (ap);
-    return ((i - (n * 2)) + m);
+    return ((i - (n * 2)) + m - ck);
 }
