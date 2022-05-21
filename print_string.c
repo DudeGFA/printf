@@ -17,7 +17,7 @@ int print_string(va_list ap, const char *format __attribute__((unused)), int i _
     p = va_arg(ap, char*);
     if (p == (char *)0)
     {
-        f = "(null)";
+    	f = "(null)";
         for(k = 0; f[k]; k++)
             _putchar(f[k]);
         return(6);
