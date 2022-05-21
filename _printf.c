@@ -11,28 +11,17 @@ int _printf(const char *format, ...)
 	int i, j, m = 0, n = 0, ck = 0;
 	printer ss[] = {
 		{"s", print_string} , {"c", print_char},
-/**
-*{"d", print_decint} , {"i", int},
-*{"b", print_in_bin},{"u", print_unint},
-*{"o", print_octint}, {"x", print_hex},
-*{"X", print_uphex}, {"S", print_string},
-*{"p", print_addr}, {"R", print_rot13},
-*{"r", print_rev},
-*/
 		{"%", print_perc}
 	};
 
 	if (format == NULL)
-	{
 		return(-1);
-	}
 	va_start(ap, format);
 	for (i = 0; format[i] && format; i++)
 	{
 		if (format[i] == '%')
 		{
-			j = 0;
-			while (j < 3)
+			for (j = 0; j < 3; j++)
 			{
 				if (*(format + i + 1) == *(ss[j].sign))
 				{
@@ -43,12 +32,11 @@ int _printf(const char *format, ...)
 				}
 				if (j == 2)
 					ck++;
-				j++;
 			}
 		}
 		else
 			_putchar(format[i]);
-}
+	}
 	va_end (ap);
-    return ((i - (n * 2)) + m - ck);
+	return ((i - (n * 2)) + m - ck);
 }
