@@ -1,6 +1,7 @@
 #include "main.h"
 #include <unistd.h>
 #include <stdarg.h>
+#include <limits.h>
 int pr_uint(int n)
 {
     int k = 1;
@@ -15,6 +16,10 @@ int print_int(va_list ap, const char *format __attribute__((unused)), int i __at
     int p;
 
     p = va_arg(ap, int);
+    if (p > INT_MAX)
+        p = INT_MIN + (p - INT_MAX);
+    if (p < INT_MIN)
+        p = INT_MAX - (INT_MIN - p);
     if (p < 0)
     {
         _putchar('-');
