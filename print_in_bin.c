@@ -13,10 +13,8 @@ int pr_uint2(int n)
 }
 int print_in_bin(va_list ap, const char *format __attribute__((unused)), int i __attribute__((unused)))
 {
-    int p;
+    unsigned int p;
 
     p = va_arg(ap, int);
-    if (p < 0)
-        return (-1);
     return (pr_uint2(p));
 }
