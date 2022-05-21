@@ -17,9 +17,9 @@ int print_int(va_list ap, const char *format __attribute__((unused)), int i __at
 
     p = va_arg(ap, int);
     if (p > INT_MAX)
-        p = INT_MIN + (p - INT_MAX);
+        p = INT_MIN + ((p - 1) - INT_MAX);
     if (p < INT_MIN)
-        p = INT_MAX - (INT_MIN - p);
+        p = INT_MAX - (INT_MIN - (p + 1));
     if (p < 0)
     {
         _putchar('-');
