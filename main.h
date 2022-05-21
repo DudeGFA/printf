@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 #ifndef _main_h
 #define _main_h
 #include <stdarg.h>
@@ -42,5 +41,5 @@ int print_char(va_list ap, const char *, int);
 int print_string(va_list ap, const char *format, int i);
 int print_perc(va_list ap, const char *format, int i);
 int print_int(va_list ap, const char *format, int i);
+
 #endif /* main.h */
->>>>>>> 1df61588ed1dd02162fbee2b4ed5a08c744853ea
