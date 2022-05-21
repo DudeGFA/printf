@@ -12,8 +12,8 @@ int _printf(const char *format, ...)
 	int i, j, m = 0, n = 0;
 	printer ss[] = {
 		{"s", print_string},{"c", print_char},
-		{"d", print_int},/*{"i", print_int},
-		{"b", print_in_bin},{"u", print_unint},
+		{"d", print_int},{"i", print_int},
+		/*{"b", print_in_bin},{"u", print_unint},
 		{"o", print_octint}, {"x", print_hex},
 		{"X", print_uphex}, {"S", print_string},
 		{"p", print_addr}, {"R", print_rot13},
