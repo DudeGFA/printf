@@ -9,11 +9,11 @@
 int _printf(const char *format, ...)
 {
 	va_list ap;
-	int i, j, m = 0, n = 0, ck = 0;
+	int i, j, m = 0, n = 0;
 	printer ss[] = {
 		{"s", print_string},{"c", print_char},
-		{"d", print_int},{"i", print_int},
-		/*{"b", print_in_bin},{"u", print_unint},
+		{"d", print_int},/*{"i", print_int},
+		{"b", print_in_bin},{"u", print_unint},
 		{"o", print_octint}, {"x", print_hex},
 		{"X", print_uphex}, {"S", print_string},
 		{"p", print_addr}, {"R", print_rot13},
@@ -38,12 +38,12 @@ int _printf(const char *format, ...)
 					break;
 				}
 				if (j == 4)
-					ck++;
+					_putchar('%');
 			}
 		}
 		else
 			_putchar(format[i]);
 	}
 	va_end (ap);
-    return ((i - (n * 2)) + m - ck);
+    return ((i - (n * 2)) + m);
 }
