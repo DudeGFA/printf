@@ -1,7 +1,7 @@
 #include "main.h"
 #include <unistd.h>
 #include <stdarg.h>
-int pr_uint(unsigned int n)
+int pr_uint(int n)
 {
     int k = 1;
 
@@ -15,5 +15,10 @@ int print_int(va_list ap, const char *format __attribute__((unused)), int i __at
     int p;
 
     p = va_arg(ap, int);
+    if (p < 0)
+    {
+        _putchar('-');
+        p = p * (-1);
+    }
     return (pr_uint(p));
 }
