@@ -19,6 +19,7 @@ int print_int(va_list ap, const char *format __attribute__((unused)), int i __at
     {
         _putchar('-');
         p = p * (-1);
+        return (pr_uint(p) + 1);
     }
     return (pr_uint(p));
 }
