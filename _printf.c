@@ -13,7 +13,7 @@ int _printf(const char *format, ...)
 	printer ss[] = {
 		{"s", print_string},{"c", print_char},
 		{"d", print_int},{"i", print_int},
-		/*{"b", print_in_bin},{"u", print_unint},
+		{"b", print_in_bin},/*{"u", print_unint},
 		{"o", print_octint}, {"x", print_hex},
 		{"X", print_uphex}, {"S", print_string},
 		{"p", print_addr}, {"R", print_rot13},
@@ -28,7 +28,7 @@ int _printf(const char *format, ...)
 	{
 		if (format[i] == '%')
 		{
-			for (j = 0; j < 5; j++)
+			for (j = 0; j < 6; j++)
 			{
 				if (*(format + i + 1) == *(ss[j].sign))
 				{
@@ -37,7 +37,7 @@ int _printf(const char *format, ...)
 					i++;
 					break;
 				}
-				if (j == 4)
+				if (j == 5)
 					_putchar('%');
 			}
 		}
