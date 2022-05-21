@@ -44,40 +44,17 @@ static int (*check_for_specifiers(const char *format))(va_list)
  */
 int _printf(const char *format, ...)
 {
-	va_list ap;
-	int i, j, m = 0, n = 0, ck = 0;
-	printer ss[] = {
-		{"s", print_string},{"c", print_char},
-		{"d", print_int},{"i", print_int},
-		/*{"b", print_in_bin},{"u", print_unint},
-		{"o", print_octint}, {"x", print_hex},
-		{"X", print_uphex}, {"S", print_string},
-		{"p", print_addr}, {"R", print_rot13},
-		{"r", print_rev},*/
-		{"%", print_perc}
-	};
+	unsigned int i = 0, count = 0;
+	va_list valist;
+	int (*f)(va_list);
 
 	if (format == NULL)
 		return (-1);
-	va_start (ap, format);
-	for (i = 0; format[i] && format; i++)
+	va_start(valist, format);
+	while (format[i])
 	{
 		for (; format[i] != '%' && format[i]; i++)
 		{
-			for (j = 0; j < 5; j++)
-			{
-				if (*(format + i + 1) == *(ss[j].sign))
-				{
-					m += ss[j].print(ap, format, i);
-					n++;
-					i++;
-					break;
-				}
-				if (j == 4)
-					ck++;
-			}
-		}
-		else
 			_putchar(format[i]);
 			count++;
 		}
@@ -99,6 +76,6 @@ int _printf(const char *format, ...)
 		else
 			i++;
 	}
-	va_end (ap);
-	return ((i - (n * 2)) + m - ck);
+	va_end(valist);
+	return (count);
 }
