@@ -18,4 +18,5 @@ int _printf(const char *format, ...);
 int print_char(va_list ap, const char *, int);
 int print_string(va_list ap, const char *format, int i);
 int print_perc(va_list ap, const char *format, int i);
+int print_int(va_list ap, const char *format, int i);
 #endif /* main.h */
