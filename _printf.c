@@ -31,7 +31,6 @@ int _printf(const char *format, ...)
 		if (format[i] == '%')
 		{
 			j = 0;
-			ck++;
 			while (j < 3)
 			{
 				if (*(format + i + 1) == *(ss[j].sign))
@@ -39,13 +38,15 @@ int _printf(const char *format, ...)
 					m += ss[j].print(ap, format, i);
 					n++;
 					i++;
-					ck--;
+					break;
 				}
+				if (j == 2)
+					ck++;
 				j++;
 			}
-			i++;
 		}
-		_putchar(format[i]);
+		else
+			_putchar(format[i]);
 	}
 	va_end (ap);
     return ((i - (n * 2)) + m - ck);
