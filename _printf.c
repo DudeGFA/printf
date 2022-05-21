@@ -33,7 +33,6 @@ int _printf(const char *format, ...)
 				if (*(format + i + 1) == *(ss[j].sign))
 				{
 					m += ss[j].print(ap, format, i);
-					va_arg(ap, void);
 					n++;
 					i++;
 					break;
