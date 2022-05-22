@@ -14,9 +14,9 @@ int _printf(const char *format, ...)
 		{"s", print_string},{"c", print_char},
 		{"d", print_int},{"i", print_int},
 		{"b", print_in_bin},{"u", print_unsint},
-		{"o", print_octint}, {"x", print_hex},
-		{"X", print_uphex}, /*{"S", print_string},
-		{"p", print_addr}, {"R", print_rot13},
+		{"o", print_octint},{"x", print_hex},
+		{"X", print_uphex},{"S", print_stringx},
+		/*{"p", print_addr}, {"R", print_rot13},
 		{"r", print_rev},*/
 		{"%", print_perc}
 	};
