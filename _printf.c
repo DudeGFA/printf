@@ -16,7 +16,7 @@ int _printf(const char *format, ...)
 		{"b", print_in_bin},{"u", print_unsint},
 		{"o", print_octint},{"x", print_hex},
 		{"X", print_uphex},{"S", print_stringx},
-		/*{"p", print_addr}, {"R", print_rot13},
+		{"p", print_addr},/*{"R", print_rot13},
 		{"r", print_rev},*/
 		{"%", print_perc}
 	};
@@ -28,7 +28,7 @@ int _printf(const char *format, ...)
 	{
 		if (format[i] == '%')
 		{
-			for (j = 0; j < 10; j++)
+			for (j = 0; j < 11; j++)
 			{
 				if (*(format + i + 1) == *(ss[j].sign))
 				{
@@ -37,7 +37,7 @@ int _printf(const char *format, ...)
 					i++;
 					break;
 				}
-				if (j == 9)
+				if (j == 10)
 					_putchar('%');
 			}
 		}
