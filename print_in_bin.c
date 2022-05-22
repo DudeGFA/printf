@@ -6,9 +6,9 @@ int pr_bint(unsigned int n)
 {
     unsigned int k = 1;
 
-    if (n / 8 != 0)
-        k += pr_bint(n / 8);
-    _putchar((n % 8) + '0');
+    if (n / 2 != 0)
+        k += pr_bint(n / 2);
+    _putchar((n % 2) + '0');
     return (k);
 }
 int print_in_bin(va_list ap, const char *format __attribute__((unused)), int i __attribute__((unused)))
