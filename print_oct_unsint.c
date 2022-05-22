@@ -31,7 +31,6 @@ int print_octint(va_list ap, const char *format __attribute__((unused)), int i _
 {
     unsigned int p;
 
-    p = va_arg(ap, unsigned int);
-    printf("%u ", p);
+    p = va_arg(ap, unsigned int);  
     return (pr_uoint(p));
 }
