@@ -24,4 +24,5 @@ int print_octint(va_list ap, const char *format, int i);
 int print_unsint(va_list ap, const char *format, int i);
 int print_hex(va_list ap, const char *format, int i);
 int print_uphex(va_list ap, const char *format, int i);
+int print_stringx(va_list ap, const char *format, int i);
 #endif /* main.h */
