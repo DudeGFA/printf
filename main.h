@@ -20,4 +20,8 @@ int print_string(va_list ap, const char *format, int i);
 int print_perc(va_list ap, const char *format, int i);
 int print_int(va_list ap, const char *format, int i);
 int print_in_bin(va_list ap, const char *format, int i);
+int print_octint(va_list ap, const char *format, int i);
+int print_unsint(va_list ap, const char *format, int i);
+int print_hex(va_list ap, const char *format, int i);
+int print_uphex(va_list ap, const char *format, int i);
 #endif /* main.h */
