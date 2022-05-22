@@ -2,9 +2,9 @@
 #include <unistd.h>
 #include <stdarg.h>
 #include <limits.h>
-int pr_usint(int n)
+int pr_usint(unsigned int n)
 {
-    int k = 1;
+    unsigned int k = 1;
 
     if (n / 10 != 0)
         k += pr_usint(n / 10);
@@ -18,9 +18,9 @@ int print_unsint(va_list ap, const char *format __attribute__((unused)), int i _
     p = va_arg(ap, unsigned int);
     return (pr_usint(p));
 }
-int pr_uoint(int n)
+int pr_uoint(unsigned int n)
 {
-    int k = 1;
+    unsigned int k = 1;
 
     if (n / 8 != 0)
         k += pr_uoint(n / 8);
@@ -31,6 +31,7 @@ int print_octint(va_list ap, const char *format __attribute__((unused)), int i _
 {
     unsigned int p;
 
-    p = va_arg(ap, int);
+    p = va_arg(ap, unsigned int);
+    printf("%u ", p);
     return (pr_uoint(p));
 }
