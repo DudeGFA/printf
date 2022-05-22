@@ -1,22 +1,23 @@
 #include "main.h"
+#include <unistd.h>
+#include <stdarg.h>
+#include <limits.h>
+int pr_uxint(unsigned int n)
+{
+    unsigned int k = 1;
+
+    if (n / 16 != 0)
+        k += pr_uxint(n / 16);
+    if ((n % 16) < 10)
+        _putchar(48 + (n % 16));
+    else
+        _putchar(87 + (n % 16));
+    return (k);
+}
 int print_hex(va_list ap, const char *format __attribute__((unused)), int i __attribute__((unused)))
 {
-    long decimalnum, quotient, remainder;
-    int d, j = 0;
-    char hexadecimalnum[100];
-    decimalnum = va_arg(ap, int);
-    quotient = decimalnum;
- 
-    while (quotient != 0)
-    {
-        remainder = quotient % 16;
-        if (remainder < 10)
-            hexadecimalnum[j++] = 48 + remainder;
-        else
-            hexadecimalnum[j++] = 87 + remainder;
-        quotient = quotient / 16;
-    }
-    for (d = (j - 1); d >= 0; d--)
-            _putchar(hexadecimalnum[d]);
-    return (j);
+    unsigned int p;
+
+    p = va_arg(ap, unsigned int);
+    return (pr_uxint(p));
 }
