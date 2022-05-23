@@ -1,2 +1,4 @@
 this is the new collab
-with a new person
+with God'sfavour.
+
+The project started with discussing steps and watching of videos. 
