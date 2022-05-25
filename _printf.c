@@ -36,7 +36,9 @@ int _printf(const char *format, ...)
 					i++;
 					break;
 				}
-				if (j == 13)
+				if (j == 13 && format[i +1] == '\0')
+					m--;
+				if (j == 13 && format[i +1] != '\0')
 					_putchar('%');
 			}
 		}
