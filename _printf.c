@@ -9,7 +9,7 @@
 int _printf(const char *format, ...)
 {
 	va_list ap;
-	int i, j, m = 0, n = 0, ck = 0;
+	int i, j, m = 0, n = 0;
 	printer ss[] = {
 		{"s", print_string},{"c", print_char},
 		{"d", print_int},{"i", print_int},
@@ -36,13 +36,13 @@ int _printf(const char *format, ...)
 					i++;
 					break;
 				}
-				if (j == 13)
-					ck++;
+				if (j == 13 && format[i +1] == '\0')
+					m--;
 			}
 		}
 		else
 			_putchar(format[i]);
 	}
 	va_end (ap);
-    return ((i - (n * 2)) + m - ck);
+    return ((i - (n * 2)) + m);
 }
