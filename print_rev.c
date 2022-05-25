@@ -15,5 +15,5 @@ int print_rev(va_list ap __attribute__((unused)),const char *format __attribute_
 		b = y;
 	for (y--; y >= 0; y--)
 		_putchar(str[y]);
-	return (b);
+	return (b + 1);
 }
