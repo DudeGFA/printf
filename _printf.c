@@ -17,7 +17,8 @@ int _printf(const char *format, ...)
 		{"o", print_octint},{"x", print_hex},
 		{"X", print_uphex},{"S", print_stringx},
 		{"p", print_addr},{"R", print_rot13},
-		{"r", print_rev},{"%", print_perc}
+		{"r", print_rev},{"%", print_perc},
+		{"l", print_long},{"h", print_short}
 	};
 
 	if (format == NULL)
@@ -27,18 +28,23 @@ int _printf(const char *format, ...)
 	{
 		if (format[i] == '%')
 		{
-			for (j = 0; j < 14; j++)
+			for (j = 0; j < 16; j++)
 			{
 				if (*(format + i + 1) == *(ss[j].sign))
 				{
 					m += ss[j].print(ap, format, i);
 					n++;
 					i++;
+					if (j == 14 || j == 15)
+					{
+						i++;
+						m--;
+					}
 					break;
 				}
-				if (j == 13 && format[i +1] == '\0')
+				if (j == 15 && format[i + 1] == '\0')
 					m--;
-				if (j == 13 && format[i +1] != '\0')
+				if (j == 15 && format[i + 1] != '\0')
 					_putchar('%');
 			}
 		}
