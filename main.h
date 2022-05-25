@@ -27,4 +27,6 @@ int print_uphex(va_list ap, const char *format, int i);
 int print_stringx(va_list ap, const char *format, int i);
 int print_addr(va_list ap, const char *format, int i);
 int pr_uuxint(unsigned int n);
+int print_rot13(va_list ap, const char *format, int i);
+int print_rev(va_list ap, const char *format, int i);
 #endif /* main.h */
