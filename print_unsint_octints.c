@@ -2,35 +2,35 @@
 #include <unistd.h>
 #include <stdarg.h>
 #include <limits.h>
-int pr_usint(unsigned int n)
+int pr_usints(short unsigned int n)
 {
     unsigned int k = 1;
 
     if (n / 10 != 0)
-        k += pr_usint(n / 10);
+        k += pr_usints(n / 10);
     _putchar((n % 10) + '0');
     return (k);
 }
-int print_unsint(va_list ap, const char *format __attribute__((unused)), int i __attribute__((unused)))
+int print_unsints(va_list ap, const char *format __attribute__((unused)), int i __attribute__((unused)))
 {
-    unsigned int p;
+    short unsigned int p;
 
     p = va_arg(ap, unsigned int);
-    return (pr_usint(p));
+    return (pr_usints(p));
 }
-int pr_uoint(unsigned int n)
+int pr_uoints(short unsigned int n)
 {
     unsigned int k = 1;
 
     if (n / 8 != 0)
-        k += pr_uoint(n / 8);
+        k += pr_uoints(n / 8);
     _putchar((n % 8) + '0');
     return (k);
 }
-int print_octint(va_list ap, const char *format __attribute__((unused)), int i __attribute__((unused)))
+int print_octints(va_list ap, const char *format __attribute__((unused)), int i __attribute__((unused)))
 {
-    unsigned int p;
+    short unsigned int p;
 
     p = va_arg(ap, unsigned int);  
-    return (pr_uoint(p));
+    return (pr_uoints(p));
 }
